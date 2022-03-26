@@ -68,6 +68,5 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :phone, :age)
     end
     
-      def new
-      end
+     
 end
