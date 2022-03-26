@@ -5,6 +5,7 @@ gem 'bootstrap-sass', '~> 3.4.1'
 
 gem 'compass-rails', '~> 1.0.3'
 
+gem 'bcrypt','3.1.13'
 
 gem 'sass-rails', '>= 6'
 

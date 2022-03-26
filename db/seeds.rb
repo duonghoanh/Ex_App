@@ -7,8 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 20.times do |i|
   User.create!(
-    name: "user#{rand(10..99)}",
-    age: rand(18..60),
+    name: "user#{rand(1..99)}",
+    age: rand(18..99),
     phone: "09#{rand(11111111..99999999)}",
     email: "user_#{i}@gmail.com"
 )
