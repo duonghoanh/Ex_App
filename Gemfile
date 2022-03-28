@@ -17,6 +17,19 @@ gem "rails", "~> 7.0.0"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
+gem "importmap-rails"
+
+
+# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
+gem "stimulus-rails"
+
+# Build JSON APIs with ease [https://github.com/rails/jbuilder]
+gem "jbuilder"
+gem 'bootstrap-sass', '~> 3.4.1'
+gem 'devise'
+
+
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
 
