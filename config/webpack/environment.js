@@ -1,3 +1,7 @@
+
+import jquery from 'jquery'
+window.jQuery = jquery
+window.$ = jquery
 const { environment } = require('@rails/webpacker')
 
 const webpack = require('webpack');

@@ -9,6 +9,8 @@ gem 'bcrypt','3.1.13'
 
 gem 'sass-rails', '>= 6'
 
+gem 'jquery-rails'
+
 ruby "3.0.3"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
