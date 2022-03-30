@@ -1,14 +1,8 @@
-ENV["RAILS_ENV"] ||= "test"
-require_relative "../config/environment"
-require "rails/test_help"
-
-class ActiveSupport::TestCase
-  # Run tests in parallel with specified workers
-  parallelize(workers: :number_of_processors)
-  include ApplicationHelper
-
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  fixtures :all
-
-  # Add more helper methods to be used by all tests here...
+ENV['RAILS_ENV'] ||= 'test'
+require 'test_helper'
+class SessionsControllerTest < ActionDispatch::IntegrationTest
+test "should get new" do
+get login_path
+assert_response :success
+end
 end
