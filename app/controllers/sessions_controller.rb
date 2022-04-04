@@ -1,29 +1,29 @@
 class SessionsController < ApplicationController
-  def new_login
-  end
+  def new; end
 
   def create
-    user = User.find_by(email: params[:session][:email])
-    if user&.authenticate(params[:session][:password])
-      log_in(user)
-       flash[:success] = 'Congturation login !!!'
-      redirect_to(user)
+    @user = User.find_by(email: params[:session][:email])
+    if @user&.authenticate(params[:session][:password])
+      log_in(@user)
+      remember_me? ? remember(@user) : forget(@user)
+      flash[:success] = 'Login successfully!'
+      redirect_to user_path(@user)
     else
-      flash.now[:danger] = "Invalid email/password combination"
-      render :new_login
+      flash.now[:danger] = 'Email/Password invalid!'
+      render :new
     end
   end
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id])
-  end
 
-  def logged_in?
-    current_user.present?
-  end
   def destroy
     log_out
-    redirect_to root_url
+    flash[:success] = 'Log out successfully!'
+    # redirect_to login_path
+    redirect_to login_path
   end
 
+  private
 
+  def remember_me?
+    params[:session][:remember_me] == "1"
+  end
 end
