@@ -1,14 +1,5 @@
-# person= FakePerson.new
-# 10.times do |i|
-#   User.create(
-#     name: person.name,
-#     email: person.free_email_address,
-#     password: 'Duong123'
-#   )
-# end
-# Create a main sample user.
 User.create(name: "Deki",
-             email: "duonggoku2000@gmail.org",
+             email: "duonggoku2000@gmail.com",
              password: "Duong123",
              password_confirmation: "Duong123")
 # Generate a bunch of additional users.
@@ -20,5 +11,7 @@ User.create(name: "Deki",
   User.create!(name: name,
                email: email,
                password: password,
-               password_confirmation: password)
+               password_confirmation: password,
+               activated: true,
+               activated_at: Time.zone.now)
 end

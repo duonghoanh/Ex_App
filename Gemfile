@@ -9,6 +9,8 @@ gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.5'
 
+
+
 #Users faker gem  for generating fake data
 gem 'faker', '2.1.2'
 # Users will_paginate gem for pagination
@@ -16,6 +18,9 @@ gem 'faker', '2.1.2'
 #Users boottrace_will_paginate gem for pagination
 gem 'bootstrap-will_paginate'
 # Use sqlite3 as the database for Active Record
+#using figaro gem to store the database path
+gem "figaro"
+
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'

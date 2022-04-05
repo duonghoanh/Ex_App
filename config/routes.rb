@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   post   '/login',  to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
   # resources :sessions, only: %i[new create destroy]
-
+  resources :account_activations, only: [:edit]
 end
