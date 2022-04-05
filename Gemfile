@@ -9,6 +9,8 @@ gem 'bcrypt','3.1.13'
 
 gem 'sass-rails', '>= 6'
 
+gem 'jquery-rails'
+
 ruby "3.0.3"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
@@ -16,6 +18,19 @@ gem "rails", "~> 7.0.0"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
+
+# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
+gem "importmap-rails"
+
+
+# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
+gem "stimulus-rails"
+
+# Build JSON APIs with ease [https://github.com/rails/jbuilder]
+gem "jbuilder"
+gem 'bootstrap-sass', '~> 3.4.1'
+gem 'devise'
+
 
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
