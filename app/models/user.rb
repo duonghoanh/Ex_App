@@ -1,10 +1,14 @@
 class User < ApplicationRecord
-   
-# validate : age<100
-validates :min_age, numericality: { greater_than: 0, less_than_or_equal_to: :max_age }
-
-validates :max_age, numericality: { less_than_or_equal_to: 100 }
-
-has_secure_password
-validates :password_digest, presence: true, length: { minimum: 6 }
+    has_secure_password
+    before_save :downcase_email
+    VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+    validates :email, presence: true,
+                      length: { maximum: 100 },
+                      format: { with: VALID_EMAIL_REGEX }
+    validates :name, presence: true
+  
+    private
+    def downcase_email
+      self.email.downcase!
+    end
 end
