@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by(email: params[:session][:email])
     if @user&.authenticate(params[:session][:password])
-      if user.activated?
+      if @user.activated?
         log_in(@user)
         remember_me? ? remember(@user) : forget(@user)
         flash[:success] = 'Login successfully!'
