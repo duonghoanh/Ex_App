@@ -9,4 +9,13 @@
 </h1>
 </section>
 </aside>
+<div class="col-md-8">
+    <% if @microposts.any? %>
+      <h3>Microposts (<%= @microposts.size %>)</h3>
+      <ol class="microposts">
+        <%= render partial: @microposts %>
+      </ol>
+      <%= paginate(@microposts, window: 2) %>
+    <% end %>
+  </div>
 </div>

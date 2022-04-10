@@ -11,15 +11,18 @@
   </head>
 
   <body>
+  <header>
     <%= render 'shared/header' %>
+  </header>
     <div class="container">
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
       <%= yield %>  
     </div>
-  </body>
-  <footer>
+     <footer>
     <%= render 'shared/footer' %>
   </footer>
+  </body>
+ 
 </html>
