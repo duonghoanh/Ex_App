@@ -3,16 +3,8 @@
 <h1>All users</h1>
 <%= paginate(@users, window: 2) %>
 <ul class="users">
+  <%# <%= render @users %>
   <%= render @users %>
-  <%
-=begin%>
- <% @users.each do |user| %>
-    <li>
-      <%= gravatar_for user, size: 50 %>
-      <%= link_to user.name, user %>
-    </li>
-  <% end %> 
-<%
-=end%>
+
 </ul>
 <%= paginate(@users, window: 2) %>
