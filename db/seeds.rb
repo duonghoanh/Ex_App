@@ -1,5 +1,5 @@
-User.create(name: "Deki",
-             email: "duonggoku2000@gmail.com",
+User.create(name: "Duong",
+             email: "duong1233123@gmail.com",
              admin:'1',
              activated: '1',
              password: "Duong123",
@@ -16,4 +16,10 @@ User.create(name: "Deki",
                password_confirmation: password,
                activated: true,
                activated_at: Time.zone.now)
+end
+users = User.where(activated: true).take(6)
+30.times do
+  users.each do |user|
+    user.microposts.create!(content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit')
+  end
 end

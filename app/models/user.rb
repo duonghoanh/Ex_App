@@ -1,9 +1,10 @@
 class User < ApplicationRecord
+  has_many_attached :photos
   attr_accessor :remember_token, :activation_token
-
   before_create :create_activation_digest
-
   has_secure_password
+  has_many :microposts
+  has_many :microposts, dependent: :destroy
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   PASSWORD_MIN_LENGTH = 6
@@ -40,6 +41,10 @@ class User < ApplicationRecord
     self.update_attribute(:remember_digest, User.digest(self.remember_token))
   end
 
+  def feed
+    microposts
+  end
+
   def forget
     self.update_attribute(:remember_digest, nil)
   end
@@ -47,9 +52,10 @@ class User < ApplicationRecord
   def authenticate?(attribute, token)
     digest = self.send(attribute)
     return false if digest.nil?
-  
+
     BCrypt::Password.new(digest).is_password?(token)
   end
+
   def activate
     update_columns(activated: true, activated_at: Time.zone.now)
   end
@@ -60,15 +66,12 @@ class User < ApplicationRecord
 
   private
 
-    def create_activation_digest
-      self.activation_token = User.new_token
-      
-      self.activation_digest = User.digest(activation_token)
-    end
+  def create_activation_digest
+    self.activation_token = User.new_token
+
+    self.activation_digest = User.digest(activation_token)
+  end
 end
-
-
-
 
 # def edit_account_activation_path(id:, **options =  {email: 'vinh@gmail.comæ', age: 20})
 #   link = "/account_activations/q5lt38hQDc_959PVoo6b7A/edit"
